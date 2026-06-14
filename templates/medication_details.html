@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Medication Details: {{ med_name }} | Prescriptly{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h1>Medication Details: {{ med_name }}</h1>
+        {% if medication %}
+            <div class="patient-info">
+                <p><strong>Name:</strong> {{ medication.name }}</p>
+                <p><strong>Price:</strong> {{ medication.price }}</p>
+                <p><strong>Description:</strong> {{ medication.description }}</p>
+                <p><strong>Dosage:</strong> {{ medication.dosage }}</p>
+                <p><strong>Side Effects:</strong> {{ medication.side_effects }}</p>
+                <p><strong>Warnings:</strong> {{ medication.warnings }}</p>
+            </div>
+        {% else %}
+            <p>No detailed information available for this medication</p>
+        {% endif %}
+
+        <a href="javascript:history.back()" class="back-btn">Back to Prescription</a>
+    </div>
+{% endblock %}

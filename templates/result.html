@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Results | Prescriptly{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <h1>Prescription Analysis</h1>
+        {% if data %}
+            <h2>Patient Information</h2>
+            <div class="patient-info">
+                <p><strong>Name:</strong> {{ data.name }}</p>
+                <p><strong>Date of Birth:</strong> {{ data.dob }}</p>
+                <p><strong>Age:</strong> {{ data.age }}</p>
+                <p><strong>Prescription Date:</strong> {{ data.date }}</p>
+            </div>
+
+            <h2>Medications</h2>
+            <table class="med-table">
+                <thead>
+                    <tr>
+                        <th>Medication</th>
+                        <th>Frequency</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for med in data.medications %}
+                    <tr>
+                        <td>{{ med.name }}</td>
+                        <td>{{ med.frequency }}</td>
+                        <td>
+                            <form method="POST" action="/medication" style="display: inline;">
+                                <input type="hidden" name="med_name" value="{{ med.name }}">
+                                <button type="submit" class="describe-btn">Describe</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No prescription data found</p>
+        {% endif %}
+
+        <hr>
+        <a href="/" class="back-btn">Upload another file</a>
+    </div>
+{% endblock %}

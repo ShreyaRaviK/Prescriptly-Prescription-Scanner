@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Page | Prescriptly{% endblock %}
+
+{% block content %}
+    <!-- Upload Section -->
+    <div class="card upload-container">
+        <h1 class="upload-title">Upload the image here</h1>
+        <form method="POST" action="/upload" enctype="multipart/form-data" class="upload-form">
+            <div class="file-input-container">
+                <input type="file" name="file" accept="image/*" required class="file-input">
+            </div>
+            <button type="submit" class="upload-btn">Upload</button>
+        </form>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2>About Prescriptly</h2>
+            <div class="about-content">
+                <p>
+                    Welcome to <strong>Prescription Scanner</strong>, your trusted tool for simplifying prescription management. 
+                    Our platform is designed to help users easily upload, analyze, and understand their medical prescriptions 
+                    using advanced technology.
+                </p>
+                <p>
+                    With the rise of digital healthcare, we aim to bridge the gap between patients and their medical information. 
+                    Our system extracts key details from prescription images, such as patient information, medication names, 
+                    and dosage instructions, making it easier for users to manage their health.
+                </p>
+                <h3>Our Mission</h3>
+                <p>
+                    Our mission is to empower individuals by providing them with accurate and accessible tools to manage their 
+                    prescriptions. We believe that everyone should have the ability to understand and organize their medical 
+                    information effortlessly.
+                </p>
+                <h3>How It Works</h3>
+                <p>
+                    Simply upload an image of your prescription, and our system will process it to extract important details. 
+                    You can view the extracted information, save it for future reference, or share it with your healthcare provider.
+                </p>
+                <h3>Why Choose Us?</h3>
+                <ul>
+                    <li><strong>Accuracy:</strong> Our advanced algorithms ensure precise extraction of prescription details.</li>
+                    <li><strong>Ease of Use:</strong> A user-friendly interface makes it easy for anyone to navigate and use the platform.</li>
+                    <li><strong>Privacy:</strong> We prioritize your data security and ensure that your information is handled with care.</li>
+                    <li><strong>Accessibility:</strong> Available in multiple languages to cater to a global audience.</li>
+                </ul>
+                <h3>Meet the Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <h4>Naveen Jayaraj</h4>
+                        <p>naveenpainthouse@gmail.com</p>
+                    </div>
+                    <div class="team-member">
+                        <h4>Shreya Ravi K</h4>
+                        <p>shreyabah05@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
